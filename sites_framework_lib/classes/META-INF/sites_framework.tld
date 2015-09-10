@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<taglib xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+  <description>WebCenter Sites Framework Tag Library</description>
+  <display-name>sites_framework</display-name>
+  <tlib-version>1.0</tlib-version>
+  <short-name>sites_framework</short-name>
+  <uri>http://www.oracle.com/webcenter/sites/framework</uri>
+  <tag>
+    <description>Get Event Names Tag Library</description>
+    <display-name>Get Event Names Tag Library</display-name>
+    <name>getEventNames</name>
+    <tag-class>oracle.webcenter.sites.framework.tags.GetEventNamesTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Attribute name where asset list output is stored</description>
+      <name>varEventNames</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Parent Id of all events</description>
+      <name>parentId</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>Search Events Tag Library</description>
+    <display-name>Search Events Tag Library</display-name>
+    <name>searchEvents</name>
+    <tag-class>oracle.webcenter.sites.framework.tags.SearchEventsTagSupport</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Attribute name where asset list output is stored</description>
+      <name>varAssetList</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Parent Id of all events</description>
+      <name>parentId</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+</taglib>

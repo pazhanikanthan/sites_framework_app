@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    
+    <bean id="services.audit" class="oracle.webcenter.sites.framework.services.AuditService" depends-on="context.aware"/>
+    <bean id="services.report.xls" class="oracle.webcenter.sites.framework.services.ExcelReportService" depends-on="context.aware"/>
+    <bean id="services.report.pdf" class="oracle.webcenter.sites.framework.services.PDFReportService" depends-on="context.aware"/>
+    
+</beans>

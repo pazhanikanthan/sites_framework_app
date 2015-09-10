@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+  <!-- Single Sign On provider -->
+  <bean id="ssoprovider" class="com.fatwire.wem.sso.cas.CASProvider">
+    <property name="config" ref="ssoconfig"/>
+  </bean>
+  <!-- Single Sign On filter -->
+  <bean id="ssofilter" class="com.fatwire.wem.sso.cas.filter.CASFilter">
+    <property name="config" ref="ssoconfig"/>
+    <property name="provider" ref="ssoprovider"/>
+  </bean>
+  <!-- Single Sign On listener -->
+  <bean id="ssolistener" class="com.fatwire.wem.sso.cas.listener.CASListener"></bean>
+  <!-- Single Sign On configuration -->
+  <bean id="ssoconfig" class="com.fatwire.wem.sso.cas.conf.CASConfig">
+    <!-- CAS server URL prefix. In case of cluster, it must point to the Load Balancer. -->
+    <property name="casUrl" value="http://localhost:9111/cas"/>
+    <!-- Used for ticket validation. In case of cluster with cas server behind firewall, it must point to the cas server. -->
+    <property name="casInternalURL" value="http://localhost:9111/cas"/>
+    <!-- Do not proxy tickets, tt's the last server in the call chain -->
+    <property name="proxyTickets" value="false"/>
+    <!-- Your application protected resources (relative to applicationUrl) -->
+    <property name="protectedMappingIncludes">
+      <list>
+        <value>wem/fatwire/**</value>
+        <value>/faces/jspx/**</value>
+        <value>/ContentServer?[pagename=OpenMarket/Xcelerate/UIFramework/LoginPage|OpenMarket/Xcelerate/UIFramework/ShowMainFrames|fatwire/getAllUserGroups|fatwire/getAllSecurityConfigs|rest/asset,#]</value>
+        <value>Satellite?[pagename=fatwire/insitetemplating/request|OpenMarket/Xcelerate/ControlPanel/Request|OpenMarket/Xcelerate/ControlPanel/EditPanel|fatwire/wem/ui/Ping|fatwire/wem/sso/validateMultiticket|OpenMarket/Xcelerate/UIFramework/ShowPreviewFrames,#]</value>
+      </list>
+    </property>
+    <property name="protectedMappingStatelessIncludes">
+      <list>
+        <value>/REST/**</value>
+      </list>
+    </property>
+    <!-- Your application protected resources excludes (relative to applicationUrl) -->
+    <property name="protectedMappingExcludes">
+      <list>
+        <value>/wem/fatwire/wem/ui/SysLocStrSvc</value>
+      </list>
+    </property>
+  </bean>
+</beans> 

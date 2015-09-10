@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="ehcache"/>
+    </bean>
+    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:/config/ehcache/cas-cache.xml"/>
+        <property name="shared" value="true"/>
+    </bean>
+
+    <bean id="upload.rest.url" class="java.lang.String">
+        <constructor-arg index="0" value="http://localhost:9111/cs/REST"/>
+    </bean>
+
+    <bean id="upload.sso.config.xml" class="java.lang.String">
+        <constructor-arg index="0" value="/config/spring/spring_config_sites_sso_services.xml"/>
+    </bean>
+    
+    <bean id="upload.sso.session" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass"><value>com.fatwire.wem.sso.SSO</value></property>
+        <property name="targetMethod"><value>getSSOSession</value></property>
+        <property name="arguments">
+            <list>
+                <ref bean="upload.sso.config.xml"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="asset.attachment.dimension" class="com.fatwire.rest.beans.DimensionValue">
+        <property name="group" value="Locale"/>
+        <property name="assettype" value="QS_Content"/>
+        <property name="id" value="1343225946872"/>
+    </bean>
+    
+    <bean id="asset.type.attachment" class="oracle.webcenter.sites.framework.types.AttachmentAssetType">
+        <property name="type" value="QS_Content"/>
+        <property name="subType" value="Attachment"/>
+        <property name="parentDefName" value="_MEcategory"/>
+        <property name="parentAssetRef" value="QS_ContentCategory:1343225946863"/>
+        <property name="template" value="Attachment/Detail_ME"/>
+        
+        <property name="assetDimension"     ref="asset.attachment.dimension"/>
+        <property name="templateAttribute"  value="template"/>
+        <property name="commentAttribute"   value="_MEcomments"/>
+        <property name="imageFileAttribute" value="_MEimageFile"/>
+        <property name="fullnameAttribute"  value="_MEfullname"/>
+        <property name="emailAttribute"     value="_MEemail"/>
+        <property name="phoneAttribute"     value="_MEphone"/>
+    </bean>
+    
+    <bean id="services.event" class="oracle.webcenter.sites.framework.services.EventService" depends-on="context.aware">
+        <property name="restUrl"  ref="upload.rest.url"/>
+        <property name="username" value="fwadmin"/>
+        <property name="password" value="welcome3!"/>
+        <property name="ssoSession" ref="upload.sso.session"/>
+        <property name="siteid" value="Events"/>
+        <property name="attachmentAssetType" ref="asset.type.attachment"/>
+    </bean>
+
+</beans>

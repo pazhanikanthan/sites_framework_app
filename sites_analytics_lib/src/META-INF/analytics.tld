@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+   <description>Oracle WebCenter Sites Tag Libraries</description>
+   <display-name>analytics</display-name>
+   <tlib-version>1.0</tlib-version>
+   <short-name>analytics</short-name>
+   <uri>http://www.oracle.com/webcenter/sites/analytics</uri>
+   <tag>
+      <description>Analytics Render Tag</description>
+      <display-name>Analytics Render Tag</display-name>
+      <name>render</name>
+      <tag-class>oracle.webcenter.sites.framework.analytics.taglibs.AnalyticsRenderTag</tag-class>
+      <body-content>JSP</body-content>
+   </tag>
+   <tag>
+      <description>Get Analytics Results Tag</description>
+      <display-name>Get Analytics Results Tag</display-name>
+      <name>results</name>
+      <tag-class>oracle.webcenter.sites.framework.analytics.taglibs.GetAnalyticsResultsTag</tag-class>
+      <body-content>empty</body-content>
+        <attribute>
+            <name>cid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+   </tag>
+   <tag>
+      <description>Analytics PayLoad Tag</description>
+      <display-name>Analytics PayLoad Tag</display-name>
+      <name>payload</name>
+      <tag-class>oracle.webcenter.sites.framework.analytics.taglibs.PayLoadTag</tag-class>
+      <body-content>JSP</body-content>
+   </tag>
+   <tag>
+      <description>Google Analytics Tag</description>
+      <display-name>Google Analytics Tag</display-name>
+      <name>getGAResults</name>
+      <tag-class>oracle.webcenter.sites.framework.analytics.taglibs.GetGAResultsTag</tag-class>
+      <body-content>empty</body-content>
+        <attribute>
+            <name>pageTitle</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>metrics</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>maxResults</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>months</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>dimensions</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>filters</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+   </tag>
+   <tag>
+      <description>Get Asset Attribute Value Tag</description>
+      <display-name>Get Asset Attribute Value Tag</display-name>
+      <name>getAssetAttributeValue</name>
+      <tag-class>oracle.webcenter.sites.framework.analytics.taglibs.GetAssetAttributeValueTag</tag-class>
+      <body-content>JSP</body-content>
+        <attribute>
+            <name>asset</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>property</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+   </tag>
+</taglib>

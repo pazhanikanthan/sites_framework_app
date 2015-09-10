@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+   <description>SEO Tag Library for WebCenter Sites</description>
+   <display-name>sites_seo</display-name>
+   <tlib-version>1.0</tlib-version>
+   <short-name>seo</short-name>
+   <uri>http://www.oracle.com/webcenter/sites/seo</uri>
+   <tag>
+      <description>Get SEO Keyword Analysis</description>
+      <display-name>Get SEO Keyword Analysis Tag</display-name>
+      <name>getKeywordAnalysis</name>
+      <tag-class>oracle.webcenter.sites.framework.seo.taglibs.GetSEOKeywordAnalysisTag</tag-class>
+      <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>keyword</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>domainVar</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+   </tag>
+   <tag>
+      <description>Get SEO Keyword Suggestions</description>
+      <display-name>Get SEO Keyword Suggestions Tag</display-name>
+      <name>getKeywordSuggestions</name>
+      <tag-class>oracle.webcenter.sites.framework.seo.taglibs.GetSEOKeywordSuggestionsTag</tag-class>
+      <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>keyword</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+   </tag>
+   <tag>
+      <description>Get SEO Content Analysis</description>
+      <display-name>Get SEO Content Analysis Tag</display-name>
+      <name>getContentAnalysis</name>
+      <tag-class>oracle.webcenter.sites.framework.seo.taglibs.GetSEOContentAnalysisTag</tag-class>
+      <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>htmlTitleVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>htmlDescriptionVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>htmlHeadlineVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>htmlBodyVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>domainVar</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+   </tag>
+</taglib>

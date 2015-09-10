@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<taglib xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+  <description>WebCenter Sites Audit Report</description>
+  <display-name>audit</display-name>
+  <tlib-version>1.0</tlib-version>
+  <short-name>audit</short-name>
+  <uri>http://www.oracle.com/webcenter/sites/audit</uri>
+  <tag>
+    <description>Report Tag Library</description>
+    <display-name>Report Tag Library</display-name>
+    <name>report</name>
+    <tag-class>oracle.webcenter.sites.framework.tags.ReportTagSupport</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <description>Attribute name where output is stored</description>
+      <name>var</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>Get Unique Values Tag Library</description>
+    <display-name>Get Unique Values Tag Library</display-name>
+    <name>getUniqueValues</name>
+    <tag-class>oracle.webcenter.sites.framework.tags.GetUniqueValuesTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>Attribute name where output is stored</description>
+      <name>var</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>Column Name Attribute</description>
+      <name>columnName</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+</taglib>
